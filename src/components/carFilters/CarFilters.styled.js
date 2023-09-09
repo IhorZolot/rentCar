@@ -62,8 +62,8 @@ export const InputFilterStyled = styled.input`
 	align-items: center;
 	border-radius: 14px 0px 0px 14px;
 	border-left: 1px solid rgba(18, 20, 23, 0.2);
-  border-top: none; 
-  border-bottom: none; 
+	border-top: none;
+	border-bottom: none;
 	background: #f7f7fb;
 `
 export const InputFilter2Styled = styled.input`
@@ -86,5 +86,18 @@ export const ButtonFilterStyled = styled.button`
 	border: none;
 	&:hover {
 		background-color: #0056b3;
+	}
+`
+export const ButtonClearFilterStyled = styled.button`
+	padding: 14px 44px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	background: #9b1b1b;
+	cursor: pointer;
+	color: white;
+	border: none;
+	&:hover {
+		background-color: #690b0b;
 	}
 `

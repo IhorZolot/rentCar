@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
 	BoxFilterInputStyled,
 	BoxFilterStyled,
+	ButtonClearFilterStyled,
 	ButtonFilterStyled,
 	FilterSectionStyled,
 	FiltersContainerStyled,
@@ -13,27 +14,30 @@ import {
 } from './CarFilters.styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCars } from '../../redux/selectors'
-import { setFitlers } from '../../redux/filterSlice'
+import { resetFilters, setFitlers } from '../../redux/filterSlice'
 
 export const CarFilters = () => {
 	const dispatch = useDispatch()
-	const [filterData,setFilterData] = useState({
-		price:'',
+	const [filterData, setFilterData] = useState({
+		price: '',
 		selectedMake: '',
 		minMileage: '',
 		maxMileage: '',
 	})
-	const {price, selectedMake, minMileage, maxMileage} = filterData
+	const { price, selectedMake, minMileage, maxMileage } = filterData
 	const cars = useSelector(selectCars)
 
-const makesData = [...new Set(cars.map(item => item.make))]
+	const makesData = [...new Set(cars.map(item => item.make))]
 
 	const handleSearchClick = () => {
 		dispatch(setFitlers(filterData))
 	}
-	const handleInputChange = (e) => {
-		const {name,value} = e.target
-		setFilterData({...filterData, [name]:value})
+	const handleClearFilters = () => {
+		dispatch(resetFilters())
+	}
+	const handleInputChange = e => {
+		const { name, value } = e.target
+		setFilterData({ ...filterData, [name]: value })
 	}
 	return (
 		<FiltersContainerStyled>
@@ -52,7 +56,7 @@ const makesData = [...new Set(cars.map(item => item.make))]
 				<LabelFilterStyled>Price/1 hour</LabelFilterStyled>
 				<SelectFilterStyled name='price' onChange={handleInputChange} value={price}>
 					<OptionFilterStyled value=''>To $</OptionFilterStyled>
-					{Array.from({ length: 20 }, (_, i) => (i+1) * 10).map((price, index) => (
+					{Array.from({ length: 20 }, (_, i) => (i + 1) * 10).map((price, index) => (
 						<OptionFilterStyled key={index} value={price}>
 							{price} $
 						</OptionFilterStyled>
@@ -81,6 +85,7 @@ const makesData = [...new Set(cars.map(item => item.make))]
 				</BoxFilterInputStyled>
 			</BoxFilterStyled>
 			<ButtonFilterStyled onClick={handleSearchClick}>Search</ButtonFilterStyled>
+			<ButtonClearFilterStyled onClick={handleClearFilters}>Reset</ButtonClearFilterStyled>
 		</FiltersContainerStyled>
 	)
 }
