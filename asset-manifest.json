@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rentcar/static/css/main.365e5c06.css",
+    "main.js": "/rentcar/static/js/main.a6e9a315.js",
+    "static/media/road-min.jpg": "/rentcar/static/media/road-min.35539c25d167fa7adfd4.jpg",
+    "index.html": "/rentcar/index.html",
+    "main.365e5c06.css.map": "/rentcar/static/css/main.365e5c06.css.map",
+    "main.a6e9a315.js.map": "/rentcar/static/js/main.a6e9a315.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.365e5c06.css",
+    "static/js/main.a6e9a315.js"
+  ]
+}
