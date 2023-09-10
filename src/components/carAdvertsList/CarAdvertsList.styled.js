@@ -5,7 +5,7 @@ export const MainContainerStyled = styled.main`
 	flex-wrap: wrap;
 	padding: 30px;
 	align-items: center;
-  justify-content: center;
+	justify-content: center;
 `
 export const ListItemStyled = styled.ul`
 	display: flex;
@@ -19,5 +19,4 @@ export const CarAdvertContainerStyled = styled.li`
 	flex-shrink: 0;
 	margin-bottom: 20px;
 `
-export const CarAdvertTrableStyled = styled.h2`
-`
+export const CarAdvertTrableStyled = styled.h2``

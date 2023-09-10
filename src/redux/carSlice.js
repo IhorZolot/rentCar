@@ -3,11 +3,22 @@ import { fetchCarsThunk } from './operations'
 
 const slice = createSlice({
 	name: 'cars',
-	initialState: { cars: [] },
+	initialState: {
+		cars: [],
+		isLoading: false,
+	},
 	extraReducers: builder => {
-		builder.addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
-			state.cars = payload
-		})
+		builder
+			.addCase(fetchCarsThunk.pending, state => {
+				state.isLoading = true
+			})
+			.addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
+				state.cars = payload
+				state.isLoading = false
+			})
+			.addCase(fetchCarsThunk.rejected, state => {
+				state.isLoading = false
+			})
 	},
 })
 

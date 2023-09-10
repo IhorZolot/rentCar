@@ -34,6 +34,12 @@ export const CarFilters = () => {
 	}
 	const handleClearFilters = () => {
 		dispatch(resetFilters())
+		setFilterData({
+			price: '',
+			selectedMake: '',
+			minMileage: '',
+			maxMileage: '',
+		})
 	}
 	const handleInputChange = e => {
 		const { name, value } = e.target
