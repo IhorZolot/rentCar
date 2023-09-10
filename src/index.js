@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { App } from './App'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { GlobalStyles } from './styles/GlobalStyle'
 import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store'
@@ -12,10 +12,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<PersistGate loading={null} persistor={persistor}>
 		<Provider store={store}>
-			<BrowserRouter basename='rentcar'>
+			<HashRouter basename='rentcar'>
 				<GlobalStyles />
 				<App />
-			</BrowserRouter>
+			</HashRouter>
 		</Provider>
 	</PersistGate>
 )
